@@ -9,6 +9,7 @@ from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
+from api.auth import jwt
 from api.commands import setup_commands
 
 # from models import Person
@@ -33,6 +34,9 @@ db.init_app(app)
 
 # add the admin
 setup_admin(app)
+
+#Inicializo mi app, conecto ambas partes
+jwt.init_app(app)
 
 # add the admin
 setup_commands(app)
